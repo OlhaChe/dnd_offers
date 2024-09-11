@@ -1,0 +1,20 @@
+<?php
+/** @var $viewModel /Magento/Catalog/ViewModel/OffersInfo */
+$viewModel = $block->getViewModel();
+?>
+<?php if ($offers = $viewModel->getActiveOffers()): ?>
+    <?php if (count($offers)): ?>
+        <div class="offers-section">
+            <ul class="offers-list">
+                <?php foreach ($offers as $offer): ?>
+                    <li class="offer-item">
+                        <a href="<?= $offer->getLink(); ?>">
+                            <img style="height: 100px; width: 80%" src="<?= $viewModel->getImageUrl($offer) ?>"
+                                 alt="<?=$offer->getName() ?>" />
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

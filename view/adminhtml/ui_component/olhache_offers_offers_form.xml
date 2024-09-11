@@ -1,0 +1,221 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">olhache_offers_offers_form.offers_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="OlhaChe\Offers\Block\Adminhtml\Offers\Edit\BackButton"/>
+			<button name="delete" class="OlhaChe\Offers\Block\Adminhtml\Offers\Edit\DeleteButton"/>
+			<button name="save" class="OlhaChe\Offers\Block\Adminhtml\Offers\Edit\SaveButton"/>
+			<button name="save_and_continue" class="OlhaChe\Offers\Block\Adminhtml\Offers\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>olhache_offers_offers_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>olhache_offers_offers_form.offers_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="offers_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="offers_form_data_source" class="OlhaChe\Offers\Model\Offers\DataProvider">
+			<settings>
+				<requestFieldName>offers_id</requestFieldName>
+				<primaryFieldName>offers_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="name" formElement="textarea" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">offers</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Name</label>
+				<dataScope>name</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="image" formElement="textarea" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataScope" xsi:type="string">image</item>
+                    <item name="formElement" xsi:type="string">imageUploader</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
+                    <item name="previewTmpl" xsi:type="string">OlhaChe_Offers/form/element/image-preview</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Allowed file types: jpg jpeg gif png.
+                    </item>
+                </item>
+            </argument>
+		</field>
+        <field name="images">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
+                    <item name="previewTmpl" xsi:type="string">OlhaChe_Offers/form/element/image-preview</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Allowed file types: jpg jpeg gif png.
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Image</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="dataScope" xsi:type="string">image</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="olhache_offers/image/upload"/>
+                    </item>
+                    <item name="required" xsi:type="boolean">false</item>
+                    <item name="allowedExtensions" xsi:type="string">jpg jpeg gif png</item>
+                    <item name="baseTmpPath" xsi:type="string">olhache/offers/tmp</item>
+                    <item name="basePath" xsi:type="string">olhache/offers</item>
+                </item>
+            </argument>
+        </field>
+<!--        <field name="image" sortOrder="10" formElement="imageUploader">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="source" xsi:type="string">image</item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--            <settings>-->
+<!--                <elementTmpl>ui/form/element/uploader/image</elementTmpl>-->
+<!--                <dataType>string</dataType>-->
+<!--                <label translate="true">Image</label>-->
+<!--                <visible>true</visible>-->
+<!--                <validation>-->
+<!--                    <rule name="required-entry" xsi:type="boolean">false</rule>-->
+<!--                </validation>-->
+<!--            </settings>-->
+<!--            <formElements>-->
+<!--                <imageUploader>-->
+<!--                    <settings>-->
+<!--                        <required>true</required>-->
+<!--                        <uploaderConfig>-->
+<!--                            <param xsi:type="url" name="url" path="olhache_offers/image/upload"/>-->
+<!--                        </uploaderConfig>-->
+<!--                        <previewTmpl>Magento_Catalog/image-preview</previewTmpl>-->
+<!--                        <openDialogTitle>Media Gallery</openDialogTitle>-->
+<!--                        <allowedExtensions>jpg jpeg gif png</allowedExtensions>-->
+<!--                        <maxFileSize>4194304</maxFileSize>-->
+<!--                    </settings>-->
+<!--                </imageUploader>-->
+<!--            </formElements>-->
+<!--        </field>-->
+		<field name="link" formElement="input" sortOrder="30">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">offers</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Link</label>
+				<dataScope>link</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="enabled" formElement="checkbox" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Enable</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="source" xsi:type="string">category</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="dataScope" xsi:type="string">enabled</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">enabled</label>
+				<dataScope>enabled</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="category" formElement="multiselect" sortOrder="50">
+			<settings>
+				<dataType>number</dataType>
+				<label translate="true">Categories</label>
+				<dataScope>category</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="OlhaChe\Offers\Model\Config\Source\CategoryOptions"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+		</field>
+		<field name="created_at" formElement="date" sortOrder="60">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">offers</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Created At</label>
+				<dataScope>created_at</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="finish_at" formElement="date" sortOrder="70">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">offers</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Ends At</label>
+				<dataScope>finish_at</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+</form>

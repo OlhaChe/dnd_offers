@@ -1,0 +1,22 @@
+{
+    "name": "olhache/module-offers",
+    "description": "Magento 2 Module OlhaChe Offers",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Olha Cherepovska",
+            "email": "avatara303@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "OlhaChe\\Offers\\": ""
+        }
+    }
+}

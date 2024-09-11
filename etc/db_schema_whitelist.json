@@ -1,0 +1,17 @@
+{
+    "olhache_offers_offers": {
+        "column": {
+            "offers_id": true,
+            "name": true,
+            "image": true,
+            "link": true,
+            "enabled": true,
+            "category": true,
+            "created_at": true,
+            "finish_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

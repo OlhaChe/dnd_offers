@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="olhache_offers_offers" resource="default" engine="innodb" comment="Offers Table">
+		<column name="offers_id" padding="10" xsi:type="int" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<column name="name" nullable="false" xsi:type="text" comment="name"/>
+		<column name="image" nullable="true" xsi:type="text" comment="image"/>
+		<column name="link" nullable="true" xsi:type="varchar" comment="link" length="255"/>
+		<column name="enabled" nullable="true" xsi:type="boolean" comment="enabled"/>
+		<column name="category" nullable="true" xsi:type="text" comment="category"/>
+		<column name="created_at" nullable="false" xsi:type="date" comment="created_at"/>
+		<column name="finish_at" nullable="true" xsi:type="date" comment="finish_at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="offers_id"/>
+        </constraint>
+	</table>
+</schema>

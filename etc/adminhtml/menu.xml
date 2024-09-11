@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="OlhaChe::top_level" title="OlhaChe" module="OlhaChe_Offers" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="OlhaChe_Offers::olhache_offers_offers" title="offers" module="OlhaChe_Offers" sortOrder="9999" resource="Magento_Backend::content" parent="OlhaChe::top_level" action="olhache_offers/offers/index"/>
+	</menu>
+</config>

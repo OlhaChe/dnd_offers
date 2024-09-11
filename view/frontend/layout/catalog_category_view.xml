@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Add our offer block before the breadcrumbs -->
+        <referenceContainer name="page.top">
+            <block class="Magento\Framework\View\Element\Template" name="olhache_offer_data" template="OlhaChe_Offers::offers.phtml" before="breadcrumbs">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">OlhaChe\Offers\ViewModel\OffersInfo</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
